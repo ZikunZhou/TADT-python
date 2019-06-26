@@ -8,11 +8,14 @@ Pytorch implementation of the Target-Aware Deep Tracking (TADT) method.
 
 ## Performance
 
-| tracker | OTB-50 | OTB-100 |
-| ------- | ------ | ------- |
-|   TADT  | 0.615  | 0.656   |
+| tracker | OTB-50 | OTB2013 | OTB-100(OTB2015) |
+| :-: | :-: | :-: | :-: |
+|   TADT-python  | 0.615  |  \---  | 0.656 |
+|[TADT-official](https://github.com/XinLi-zn/TADT) | \--- | 0.680 | 0.660 |
 
-rate: 65FPS
+rate: 77FPS (i7 8700k, RTX2080)
+
+Note: We think that the tiny performance gap between TADT-python and TADT-official is caused by the difference between Matconvnet and pytorch
 
 ## Environment
 This code has been tested on Ubuntu 16.04, Python 3.7, Pytorch 1.1, CUDA 10, RTX 2080 GPU
