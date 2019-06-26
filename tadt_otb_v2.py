@@ -14,9 +14,7 @@ from backbone_v2 import build_vgg16
 otb_root = 'the root path of otb benchmark'
 result_path = 'the root path that you want to put the result'
 vgg16_model_mat_path = 'the path of the vgg model'
-otb_root = '/home/zikun/work/data/OTB2015-python/'
-result_path = '/home/zikun/Desktop/tadt_release/results/TADT_otb100/'
-vgg16_model_mat_path = "/home/zikun/Desktop/tadt_release/imagenet-vgg-verydeep-16.mat"
+
 dataset = DatasetFactory.create_dataset(name = 'OTB100', dataset_root = otb_root, load_img = False)
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
