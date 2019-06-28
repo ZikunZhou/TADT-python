@@ -9,8 +9,6 @@ import torch.nn as nn
 from torch.optim import SGD
 
 
-
-
 torch.backends.cudnn.benchmark=True
 
 torch.manual_seed(1234)
@@ -75,7 +73,7 @@ def taf_model(features, filter_sizes, device):
         feature_weights.append(feature_weight)
         balance_weights.append(torch.max(torch.sum(torch.squeeze(feature)[indices[0:49],:,:],dim=0)))
 
-    balance_weights = balance_weights[1] / torch.tensor(balance_weights)
+    balance_weights = balance_weights[1] / torch.tensor(balance_weights, device = device)
     return feature_weights, balance_weights
 
 

@@ -1,13 +1,14 @@
 import torch
 import torch.nn as nn
 
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
 
 class RankLoss(nn.Module):
 
-    def __init__(self, mode = 'mean'):
+    def __init__(self, device, mode = 'mean'):
         super(RankLoss, self).__init__()
         assert(mode in ['mean', 'sum']), 'mode need to be "mean" or "sum"'
+        self.device = device
         self.mode = mode
     def forward1(self, input, target):
         input = torch.squeeze(input)
@@ -37,9 +38,9 @@ class RankLoss(nn.Module):
 
     def backward(self, grad_output):
 
-        tmp_sum = torch.zeros(self.pair_num, device = device)
-        u = torch.zeros(self.pair_num, device = device)
-        v = torch.zeros(self.pair_num, device = device)
+        tmp_sum = torch.zeros(self.pair_num, device = self.device)
+        u = torch.zeros(self.pair_num, device = self.device)
+        v = torch.zeros(self.pair_num, device = self.device)
         for i in range(self.pair_num-1):
 
             u[:] = 0
@@ -51,7 +52,6 @@ class RankLoss(nn.Module):
 
 
         der_input = (-1/self.loss_lsep*tmp_sum)
+        grad_input = grad_output.float().to(self.device) * der_input
 
-        grad_input = grad_output * der_input
-        
         return grad_input

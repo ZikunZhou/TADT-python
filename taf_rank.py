@@ -17,7 +17,7 @@ torch.cuda.manual_seed_all(1234)
 
 def taf_rank_model(feature, filter_size, device):
     rank_net = Rank_Net(filter_size).to(device)
-    rank_loss = RankLoss()
+    rank_loss = RankLoss(device)
     filter_size = np.append(filter_size[0:2], np.array(rank_net.filter_size))
     temp_feature_weight = rank_selection(feature, filter_size, rank_net, rank_loss, device)
     return temp_feature_weight
