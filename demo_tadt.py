@@ -1,10 +1,16 @@
 #tadt-demo
 import glob
-from os.path import join, realpath, dirname
+import time
+from os.path import dirname, join, realpath
+
 import numpy as np
 import scipy.io
-from tadt_tracker import Tadt_Tracker
+import torch
+
 from backbone_v2 import build_vgg16
+from defaults import _C as cfg
+from tadt_tracker import Tadt_Tracker
+
 
 def load_sequece(root_path):
     img_list = (glob.glob(join(root_path, '*/img/*.jpg')))
@@ -21,10 +27,7 @@ def load_sequece(root_path):
     return img_list, gt_bboxes
 
 if __name__ == "__main__":
-    from defaults import _C as cfg
-    import time
-    import torch
-    assert(False), 'please download "imagenet-vgg-verydeep-16.mat" from "http://www.vlfeat.org/matconvnet/models/imagenet-vgg-verydeep-16.mat" and set its path in defaults.py'
+    #assert(False), 'please download "imagenet-vgg-verydeep-16.mat" from "http://www.vlfeat.org/matconvnet/models/imagenet-vgg-verydeep-16.mat" and set its path in defaults.py'
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     root_path = join(realpath(dirname(__file__)),'sequences/')
     img_list, gt_bboxes = load_sequece(root_path)

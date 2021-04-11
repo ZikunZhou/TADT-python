@@ -1,6 +1,7 @@
-import torch
 import numpy as np
+import torch
 from scipy import signal
+
 
 def fuse_feature(features):
     return torch.cat(features, dim = 1)

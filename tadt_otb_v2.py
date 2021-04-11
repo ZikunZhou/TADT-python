@@ -1,15 +1,16 @@
 import sys
+
 sys.path.append('/home/zikun/work/tracking/pysot-toolkit')
+import os
+
+import numpy as np
+import torch
 from pysot.datasets import DatasetFactory
 from pysot.utils.region import vot_overlap
-import numpy as np
-from tadt_tracker import Tadt_Tracker
-import os
-import torch
 
-from defaults import _C as cfg
 from backbone_v2 import build_vgg16
-
+from defaults import _C as cfg
+from tadt_tracker import Tadt_Tracker
 
 otb_root = 'the root path of otb benchmark'
 result_path = 'the root path that you want to put the result'

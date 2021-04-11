@@ -1,13 +1,13 @@
 #20190513 by zikun
+import math
+
 import numpy as np
 import torch
-from taf_net import Regress_Net
-from taf_rank import taf_rank_model
-
-import math
 import torch.nn as nn
 from torch.optim import SGD
 
+from taf_net import Regress_Net
+from taf_rank import taf_rank_model
 
 torch.backends.cudnn.benchmark=True
 

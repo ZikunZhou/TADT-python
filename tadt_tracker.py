@@ -1,18 +1,26 @@
 #20190512 by zikun
 #定义tracker类
-import math, cv2
-import numpy as np
+import math
+
+import cv2
+import matplotlib
 import matplotlib.pyplot as plt
-from matplotlib.patches import Rectangle
+import numpy as np
 import torch
+from matplotlib.patches import Rectangle
 
 from backbone_v2 import VGG, build_vgg16
-from feature_utils_v2 import get_subwindow_feature, generate_patch_feature, round_python2, features_selection, resize_tensor
-from feature_utils_v2 import get_subwindow, feature_selection# for visualization
-from siamese import SiameseNet
+from feature_utils_v2 import feature_selection  # for visualization
+from feature_utils_v2 import (features_selection, generate_patch_feature,
+                              get_subwindow, get_subwindow_feature,
+                              resize_tensor, round_python2)
 from image_loader import default_image_loader
-from tracking_utils import fuse_feature, calculate_scale, generate_2d_window, cal_window_size
+from siamese import SiameseNet
 from taf import taf_model
+from tracking_utils import (cal_window_size, calculate_scale, fuse_feature,
+                            generate_2d_window)
+
+# matplotlib.use('Qt5Agg') # fix for MacOS bug - "AttributeError: 'FigureManagerMac' object has no attribute 'window'"
 
 class Tadt_Tracker(object):
     def __init__(self, config, model = None, display = True, device = 'cpu', name = 'TADT', model_from_mat = True):

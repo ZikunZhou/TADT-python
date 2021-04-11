@@ -2,7 +2,7 @@
 
 Pytorch implementation of the Target-Aware Deep Tracking (TADT) method.
 
-## Main contents:
+## Contents
 - Codes of the TADT tracker.
 - Codes of visualization.
 
@@ -20,16 +20,16 @@ Note: We think that the tiny performance gap between TADT-python and TADT-offici
 ## Environment
 This code has been tested on Ubuntu 16.04, Python 3.7, Pytorch 1.1, CUDA 10, RTX 2080 GPU
 
-## Requirements
-numpy, cv2, matplotlib, scipy, yacs
-
-
 ## Installation
-1. Clone the GIT repository:  
-$ git clone    
-2. Run the demo script to test the tracker:  
+```
+git clone git@github.com:ZikunZhou/TADT-python.git
+cd TADT-python
+pip install -r requirements.txt
+wget http://www.vlfeat.org/matconvnet/models/imagenet-vgg-verydeep-16.mat
 python demo_tadt.py
+```
 
+**Note for MacOS users:** uncomment line `PyQt5` in `requirements.txt` and line `matplotlib.use('Qt5Agg')` in `tadt_tracker.py` (fixes `AttributeError: 'FigureManagerMac' object has no attribute 'window'`).
 
 ## Contact
 Zikun Zhou

@@ -1,6 +1,8 @@
 # Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved.
-from os.path import join, realpath, dirname
+from os.path import dirname, join, realpath
+
 from yacs.config import CfgNode as CN
+
 #YACS was created as a lightweight library to define and manage system configurations
 
 # -----------------------------------------------------------------------------

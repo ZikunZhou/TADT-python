@@ -1,14 +1,14 @@
-import torch
-import numpy as np
-import torch.nn as nn
-from torch.optim import SGD
 import math
 
-from taf_net import Rank_Net
+import matplotlib.pyplot as plt
+import numpy as np
+import torch
+import torch.nn as nn
+from torch.optim import SGD
+
 from feature_utils_v2 import resize_tensor
 from rank_loss import RankLoss
-import matplotlib.pyplot as plt
-
+from taf_net import Rank_Net
 
 torch.backends.cudnn.benchmark=True
 

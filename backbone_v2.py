@@ -1,13 +1,14 @@
+import logging
+import os
+from collections import OrderedDict
 from functools import partial
+
+import numpy as np
+import scipy.io
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from torchvision import models
-import logging
-from collections import OrderedDict
-import scipy.io
-import os
-import numpy as np
 
 
 def conv3x3(in_planes, out_planes, padding = 1, dilation=1):

@@ -2,7 +2,6 @@ import torch
 import torch.nn as nn
 
 
-
 class RankLoss(nn.Module):
 
     def __init__(self, device, mode = 'mean'):

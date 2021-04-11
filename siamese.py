@@ -1,9 +1,10 @@
 
+import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from torchvision import models
-import numpy as np
+
 
 class SiameseNet(nn.Module):
     def __init__(self,feature_extractor = None, feature_weights = None):

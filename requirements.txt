@@ -1,0 +1,6 @@
+numpy
+opencv-python
+matplotlib
+scipy
+yacs
+# PyQt5 # fix for AttributeError in MacOS

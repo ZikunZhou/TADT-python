@@ -1,12 +1,13 @@
 
-from image_loader import default_image_loader
-from torchvision import transforms
+import cv2
+import matplotlib.pyplot as plt
+import numpy as np
 import torch
 import torch.nn as nn
-import numpy as np
-import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
-import cv2
+from torchvision import transforms
+
+from image_loader import default_image_loader
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
