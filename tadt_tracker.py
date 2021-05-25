@@ -190,7 +190,7 @@ class Tadt_Tracker(object):
         self.ax.text(0, 0, 'frame: {}'.format(frame), fontsize=15)
         plt.ion()
         mngr = plt.get_current_fig_manager()
-        mngr.window.setGeometry(100,100,800,500)
+        mngr.window.setGeometry = (100,100,800,500)
         plt.pause(0.01)
 
     def end_visualize(self):
